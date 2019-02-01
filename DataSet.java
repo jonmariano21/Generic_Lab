@@ -21,7 +21,7 @@ public class DataSet
       Adds a data value to the data set.
       @param x a data value
    */
-   public void add(Measurable x)
+   public void add(Measurable x)//Should I change Measurable to E?
    {
       sum = sum + x.getMeasure();
       if (count == 0 || maximum.getMeasure() < x.getMeasure())
