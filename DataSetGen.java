@@ -4,12 +4,12 @@
  * @author Jonathan Mariano
  * 
  * Generic version of the DataSet class.
- * @param <T> the type of the DataSet.
+ * @param <T> the type of the DataSet to be inserted.
  */
 public class DataSetGen<T> implements Measurable{
 	private double sum;
-	//private Measurable maximum;
-	private T maximum;
+	//private Measurable maximum; //From DataSet.java
+	private T maximum; //Converted to generic
 	private int count;
 
 	   /**
@@ -24,10 +24,11 @@ public class DataSetGen<T> implements Measurable{
 	   /**
 	      Adds a data value to the data set.
 	      @param x a data value
+	      No instead of taking in type Measurable it will be a generic type T
 	   */
 	   public void add(T x){
 	      sum = sum + ((Measurable) x).getMeasure();
-	      if (count == 0 || ((Measurable) maximum).getMeasure() < ((Measurable) x).getMeasure())
+	      if (count == 0 || ((Measurable) maximum).getMeasure() < ((Measurable) x).getMeasure()) //Cast advised by Eclipse
 	         maximum = x;
 	      count++;
 	   }
